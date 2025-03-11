@@ -15,6 +15,12 @@ groundImg.src = "assets/sprites/base.png";
 const pipeImg = new Image();
 pipeImg.src = "assets/sprites/pipe-green.png";
 
+const digitImages = [];
+for (let i = 0; i <= 9; i++) {
+    digitImages[i] = new Image();
+    digitImages[i].src = `assets/sprites/${i}.png`;
+}
+
 // Tải sprite chim với hiệu ứng đập cánh
 const birdFrames = [new Image(), new Image(), new Image()];
 birdFrames[0].src = "assets/sprites/yellowbird-upflap.png";
@@ -73,7 +79,7 @@ function drawBackground() {
 
 // Vẽ đất
 function drawGround() {
-  groundX -= 2;
+    groundX -= 2;
   if (groundX <= -48) groundX = 0;
   ctx.drawImage(groundImg, groundX, canvas.height - 112);
   ctx.drawImage(groundImg, groundX + 336, canvas.height - 112);
@@ -109,9 +115,15 @@ function drawPipes() {
 
 // Vẽ điểm số
 function drawScore() {
-  ctx.fillStyle = "white";
-  ctx.font = "24px Arial";
-  ctx.fillText(`${score}`, canvas.width / 2, 50);
+    const scoreStr = score.toString(); // Chuyển điểm số thành chuỗi
+    const digitWidth = 24; // Chiều rộng của mỗi số (theo assets gốc)
+    const totalWidth = scoreStr.length * digitWidth;
+    const startX = (canvas.width - totalWidth) / 2; // Căn giữa
+
+    for (let i = 0; i < scoreStr.length; i++) {
+        const digit = parseInt(scoreStr[i]);
+        ctx.drawImage(digitImages[digit], startX + i * digitWidth, 50);
+    }
 }
 
 // Vẽ menu
