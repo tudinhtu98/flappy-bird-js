@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <style>
+        /* Reset mặc định và căn giữa */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #87CEEB; /* Màu nền mặc định nếu ảnh không tải */
+            overflow: hidden;
+        }
+
+        #gameCanvas {
+            width: 288px;
+            height: 512px;
+            border: 1px solid black; /* Viền để dễ nhìn khi debug */
+        }
+
+        /* Responsive cho mobile */
+        @media (max-width: 320px) {
+            #gameCanvas {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <script src="game.js"></script>
+</body>
+</html>
