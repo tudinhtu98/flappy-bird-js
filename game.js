@@ -142,7 +142,7 @@ function drawGameOver() {
     ctx.fillText(
       `Restart in ${Math.ceil(countdown / 60)}s`,
       canvas.width / 2 - 50,
-      canvas.height / 2 + 100
+      canvas.height / 2 + 50
     );
   } else {
     ctx.fillText(
