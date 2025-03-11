@@ -79,7 +79,9 @@ function drawBackground() {
 
 // Vẽ đất
 function drawGround() {
+  if (gameState !== "gameOver") {
     groundX -= 2;
+  }
   if (groundX <= -48) groundX = 0;
   ctx.drawImage(groundImg, groundX, canvas.height - 112);
   ctx.drawImage(groundImg, groundX + 336, canvas.height - 112);
